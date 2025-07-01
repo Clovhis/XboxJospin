@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -10,6 +11,10 @@ namespace XboxJoystickTester
     {
         private Timer _timer;
         private XInput.XINPUT_STATE _state;
+        private float _leftX;
+        private float _leftY;
+        private float _rightX;
+        private float _rightY;
 
         public MainForm()
         {
@@ -35,6 +40,12 @@ namespace XboxJoystickTester
                 lblLY.Text = $"LY: {_state.Gamepad.sThumbLY}";
                 lblRX.Text = $"RX: {_state.Gamepad.sThumbRX}";
                 lblRY.Text = $"RY: {_state.Gamepad.sThumbRY}";
+                _leftX = _state.Gamepad.sThumbLX;
+                _leftY = _state.Gamepad.sThumbLY;
+                _rightX = _state.Gamepad.sThumbRX;
+                _rightY = _state.Gamepad.sThumbRY;
+                panelLeftStick.Invalidate();
+                panelRightStick.Invalidate();
                 progressLT.Value = _state.Gamepad.bLeftTrigger;
                 progressRT.Value = _state.Gamepad.bRightTrigger;
                 var on = Color.Lime;
@@ -53,6 +64,9 @@ namespace XboxJoystickTester
                 lblConnected.Text = "No controller";
                 lblDPadUp.BackColor = lblDPadDown.BackColor = lblDPadLeft.BackColor = lblDPadRight.BackColor =
                     lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor = Color.Gray;
+                _leftX = _leftY = _rightX = _rightY = 0;
+                panelLeftStick.Invalidate();
+                panelRightStick.Invalidate();
             }
         }
 
@@ -62,6 +76,29 @@ namespace XboxJoystickTester
             ushort rightMotor = (ushort)(trackRight.Value * 655);
             var vibration = new XInput.XINPUT_VIBRATION { wLeftMotorSpeed = leftMotor, wRightMotorSpeed = rightMotor };
             XInput.XInputSetState(0, ref vibration);
+        }
+
+        private void panelLeftStick_Paint(object sender, PaintEventArgs e)
+        {
+            DrawStick(e.Graphics, panelLeftStick, _leftX, _leftY);
+        }
+
+        private void panelRightStick_Paint(object sender, PaintEventArgs e)
+        {
+            DrawStick(e.Graphics, panelRightStick, _rightX, _rightY);
+        }
+
+        private void DrawStick(Graphics g, Panel panel, float x, float y)
+        {
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            int radius = Math.Min(panel.Width, panel.Height) / 2 - 5;
+            int centerX = panel.Width / 2;
+            int centerY = panel.Height / 2;
+            g.DrawEllipse(Pens.Black, centerX - radius, centerY - radius, radius * 2, radius * 2);
+            int ballRadius = 6;
+            int bx = centerX + (int)(x / 32767f * radius);
+            int by = centerY - (int)(y / 32767f * radius);
+            g.FillEllipse(Brushes.Red, bx - ballRadius, by - ballRadius, ballRadius * 2, ballRadius * 2);
         }
     }
 
