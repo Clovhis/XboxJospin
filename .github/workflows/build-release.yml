@@ -17,9 +17,7 @@ jobs:
           dotnet-version: '6.0.x'
       - name: Publish
         run: |
-          dotnet publish XboxJoystickTester/XboxJoystickTester.csproj \
-            -c Release -r win-x64 --self-contained true \
-            -o publish
+          dotnet publish XboxJoystickTester/XboxJoystickTester.csproj -c Release -r win-x64 --self-contained true -o publish
           Compress-Archive -Path publish/* -DestinationPath XboxJoystickTester.zip
       - name: Upload Release
         uses: softprops/action-gh-release@v1

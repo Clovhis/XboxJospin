@@ -7,10 +7,10 @@ This repository contains a minimal Windows Forms application for testing Xbox co
 1. Open `XboxJoystickTester.sln` with Visual Studio 2022 or newer on Windows.
 2. Restore NuGet packages if needed.
 3. Build the solution in **Release** mode.
-4. Choose **Publish** to create a self-contained build for `win-x64`. The
-   output will be written to `publish/`. Compress this folder into a `.zip`
-   archive so that anyone can unzip it and run the included executable without
-   installing .NET.
+4. Choose **Publish** to create a self-contained **single-file** build for
+   `win-x64`. The output will be written to `publish/` as
+   `XboxJoystickTester.exe`. Compress this folder into a `.zip` archive so that
+   anyone can unzip it and run the executable without installing .NET.
 
 ## Features
 
