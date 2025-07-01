@@ -26,10 +26,11 @@ namespace XboxJoystickTester
             if (XInput.XInputGetState(0, ref _state) == 0)
             {
                 lblConnected.Text = "Connected";
-                lblA.Text = (_state.Gamepad.wButtons & XInput.ButtonFlags.A) != 0 ? "A: Pressed" : "A: Released";
-                lblB.Text = (_state.Gamepad.wButtons & XInput.ButtonFlags.B) != 0 ? "B: Pressed" : "B: Released";
-                lblX.Text = (_state.Gamepad.wButtons & XInput.ButtonFlags.X) != 0 ? "X: Pressed" : "X: Released";
-                lblY.Text = (_state.Gamepad.wButtons & XInput.ButtonFlags.Y) != 0 ? "Y: Pressed" : "Y: Released";
+                var buttons = (XInput.ButtonFlags)_state.Gamepad.wButtons;
+                lblA.Text = (buttons & XInput.ButtonFlags.A) != 0 ? "A: Pressed" : "A: Released";
+                lblB.Text = (buttons & XInput.ButtonFlags.B) != 0 ? "B: Pressed" : "B: Released";
+                lblX.Text = (buttons & XInput.ButtonFlags.X) != 0 ? "X: Pressed" : "X: Released";
+                lblY.Text = (buttons & XInput.ButtonFlags.Y) != 0 ? "Y: Pressed" : "Y: Released";
                 lblLX.Text = $"LX: {_state.Gamepad.sThumbLX}";
                 lblLY.Text = $"LY: {_state.Gamepad.sThumbLY}";
                 lblRX.Text = $"RX: {_state.Gamepad.sThumbRX}";
