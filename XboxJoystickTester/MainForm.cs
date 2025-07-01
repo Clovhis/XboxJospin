@@ -69,6 +69,8 @@ namespace XboxJoystickTester
                 lblRB.BackColor = (buttons & XInput.ButtonFlags.RightShoulder) != 0 ? on : off;
                 lblStart.BackColor = (buttons & XInput.ButtonFlags.Start) != 0 ? on : off;
                 lblBack.BackColor = (buttons & XInput.ButtonFlags.Back) != 0 ? on : off;
+                lblLeftStickPress.BackColor = (buttons & XInput.ButtonFlags.LeftThumb) != 0 ? on : off;
+                lblRightStickPress.BackColor = (buttons & XInput.ButtonFlags.RightThumb) != 0 ? on : off;
             }
             else
             {
@@ -77,6 +79,7 @@ namespace XboxJoystickTester
                 lblConnected.ForeColor = Color.White;
                 lblDPadUp.BackColor = lblDPadDown.BackColor = lblDPadLeft.BackColor = lblDPadRight.BackColor =
                     lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor =
+                    lblLeftStickPress.BackColor = lblRightStickPress.BackColor =
                     lblA.BackColor = lblB.BackColor = lblX.BackColor = lblY.BackColor = Color.Gray;
                 _leftX = _leftY = _rightX = _rightY = 0;
                 panelLeftStick.Invalidate();
