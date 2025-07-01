@@ -51,7 +51,7 @@ namespace XboxJoystickTester
             // lblConnected
             // 
             this.lblConnected.AutoSize = true;
-            this.lblConnected.Location = new System.Drawing.Point(12, 9);
+            this.lblConnected.Location = new System.Drawing.Point(10, 10);
             this.lblConnected.Name = "lblConnected";
             this.lblConnected.Size = new System.Drawing.Size(69, 15);
             this.lblConnected.TabIndex = 0;
@@ -60,7 +60,7 @@ namespace XboxJoystickTester
             // lblA
             // 
             this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(12, 33);
+            this.lblA.Location = new System.Drawing.Point(10, 40);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(24, 15);
             this.lblA.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace XboxJoystickTester
             // lblB
             // 
             this.lblB.AutoSize = true;
-            this.lblB.Location = new System.Drawing.Point(12, 48);
+            this.lblB.Location = new System.Drawing.Point(10, 65);
             this.lblB.Name = "lblB";
             this.lblB.Size = new System.Drawing.Size(23, 15);
             this.lblB.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace XboxJoystickTester
             // lblX
             // 
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(12, 63);
+            this.lblX.Location = new System.Drawing.Point(10, 90);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(24, 15);
             this.lblX.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace XboxJoystickTester
             // lblY
             // 
             this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(12, 78);
+            this.lblY.Location = new System.Drawing.Point(10, 115);
             this.lblY.Name = "lblY";
             this.lblY.Size = new System.Drawing.Size(23, 15);
             this.lblY.TabIndex = 4;
@@ -96,7 +96,7 @@ namespace XboxJoystickTester
             // lblLX
             // 
             this.lblLX.AutoSize = true;
-            this.lblLX.Location = new System.Drawing.Point(150, 33);
+            this.lblLX.Location = new System.Drawing.Point(10, 150);
             this.lblLX.Name = "lblLX";
             this.lblLX.Size = new System.Drawing.Size(27, 15);
             this.lblLX.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace XboxJoystickTester
             // lblLY
             // 
             this.lblLY.AutoSize = true;
-            this.lblLY.Location = new System.Drawing.Point(150, 48);
+            this.lblLY.Location = new System.Drawing.Point(10, 175);
             this.lblLY.Name = "lblLY";
             this.lblLY.Size = new System.Drawing.Size(27, 15);
             this.lblLY.TabIndex = 6;
@@ -114,7 +114,7 @@ namespace XboxJoystickTester
             // lblRX
             // 
             this.lblRX.AutoSize = true;
-            this.lblRX.Location = new System.Drawing.Point(150, 63);
+            this.lblRX.Location = new System.Drawing.Point(10, 200);
             this.lblRX.Name = "lblRX";
             this.lblRX.Size = new System.Drawing.Size(27, 15);
             this.lblRX.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace XboxJoystickTester
             // lblRY
             // 
             this.lblRY.AutoSize = true;
-            this.lblRY.Location = new System.Drawing.Point(150, 78);
+            this.lblRY.Location = new System.Drawing.Point(10, 225);
             this.lblRY.Name = "lblRY";
             this.lblRY.Size = new System.Drawing.Size(27, 15);
             this.lblRY.TabIndex = 8;
@@ -131,7 +131,7 @@ namespace XboxJoystickTester
             // 
             // progressLT
             // 
-            this.progressLT.Location = new System.Drawing.Point(12, 108);
+            this.progressLT.Location = new System.Drawing.Point(10, 260);
             this.progressLT.Maximum = 255;
             this.progressLT.Name = "progressLT";
             this.progressLT.Size = new System.Drawing.Size(165, 23);
@@ -139,7 +139,7 @@ namespace XboxJoystickTester
             // 
             // progressRT
             // 
-            this.progressRT.Location = new System.Drawing.Point(12, 137);
+            this.progressRT.Location = new System.Drawing.Point(10, 290);
             this.progressRT.Maximum = 255;
             this.progressRT.Name = "progressRT";
             this.progressRT.Size = new System.Drawing.Size(165, 23);
@@ -147,7 +147,7 @@ namespace XboxJoystickTester
             // 
             // trackLeft
             // 
-            this.trackLeft.Location = new System.Drawing.Point(12, 176);
+            this.trackLeft.Location = new System.Drawing.Point(10, 330);
             this.trackLeft.Maximum = 100;
             this.trackLeft.Name = "trackLeft";
             this.trackLeft.Size = new System.Drawing.Size(165, 45);
@@ -155,7 +155,7 @@ namespace XboxJoystickTester
             // 
             // trackRight
             // 
-            this.trackRight.Location = new System.Drawing.Point(183, 176);
+            this.trackRight.Location = new System.Drawing.Point(10, 375);
             this.trackRight.Maximum = 100;
             this.trackRight.Name = "trackRight";
             this.trackRight.Size = new System.Drawing.Size(165, 45);
@@ -163,7 +163,7 @@ namespace XboxJoystickTester
             // 
             // btnVibrate
             // 
-            this.btnVibrate.Location = new System.Drawing.Point(12, 227);
+            this.btnVibrate.Location = new System.Drawing.Point(10, 425);
             this.btnVibrate.Name = "btnVibrate";
             this.btnVibrate.Size = new System.Drawing.Size(75, 23);
             this.btnVibrate.TabIndex = 13;
@@ -175,10 +175,9 @@ namespace XboxJoystickTester
             // joystickView
             //
             this.joystickView = new JoystickView();
-            this.joystickView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.joystickView.Location = new System.Drawing.Point(0, 0);
+            this.joystickView.Location = new System.Drawing.Point(220, 0);
             this.joystickView.Name = "joystickView";
-            this.joystickView.Size = new System.Drawing.Size(800, 600);
+            this.joystickView.Size = new System.Drawing.Size(560, 600);
             this.joystickView.TabIndex = 14;
             // 
             // MainForm

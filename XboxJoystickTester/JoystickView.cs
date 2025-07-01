@@ -21,14 +21,15 @@ namespace XboxJoystickTester
 
         /// <summary>
         /// Updates the control with the latest gamepad state and triggers a repaint.
-        /// Plays a subtle sound whenever a button transition from released to pressed occurs.
+        /// Plays a quick click sound whenever a button transition from released
+        /// to pressed occurs.
         /// </summary>
         public void UpdateState(XInput.XINPUT_STATE state)
         {
             var currentButtons = (XInput.ButtonFlags)state.Gamepad.wButtons;
             if ((currentButtons & ~_previousButtons) != 0)
             {
-                SystemSounds.Asterisk.Play();
+                SystemSounds.Beep.Play();
             }
             _previousButtons = currentButtons;
 
@@ -62,7 +63,6 @@ namespace XboxJoystickTester
             Point rt = new Point(470, 40);
             Point viewBtn = new Point(350, 220);
             Point menuBtn = new Point(430, 220);
-            Point xboxBtn = new Point(390, 180);
 
             var buttons = (XInput.ButtonFlags)_state.Gamepad.wButtons;
 
@@ -88,7 +88,6 @@ namespace XboxJoystickTester
             // Center buttons
             DrawCenterButton(g, viewBtn, "View", buttons.HasFlag(XInput.ButtonFlags.Back));
             DrawCenterButton(g, menuBtn, "Menu", buttons.HasFlag(XInput.ButtonFlags.Start));
-            DrawCenterButton(g, xboxBtn, "Xbox", false);
         }
 
         private void DrawStick(Graphics g, Point center, int radius, int innerRadius, short x, short y, bool pressed, string label)
