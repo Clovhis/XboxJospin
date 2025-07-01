@@ -37,10 +37,22 @@ namespace XboxJoystickTester
                 lblRY.Text = $"RY: {_state.Gamepad.sThumbRY}";
                 progressLT.Value = _state.Gamepad.bLeftTrigger;
                 progressRT.Value = _state.Gamepad.bRightTrigger;
+                var on = Color.Lime;
+                var off = Color.Gray;
+                lblDPadUp.BackColor = (buttons & XInput.ButtonFlags.DPadUp) != 0 ? on : off;
+                lblDPadDown.BackColor = (buttons & XInput.ButtonFlags.DPadDown) != 0 ? on : off;
+                lblDPadLeft.BackColor = (buttons & XInput.ButtonFlags.DPadLeft) != 0 ? on : off;
+                lblDPadRight.BackColor = (buttons & XInput.ButtonFlags.DPadRight) != 0 ? on : off;
+                lblLB.BackColor = (buttons & XInput.ButtonFlags.LeftShoulder) != 0 ? on : off;
+                lblRB.BackColor = (buttons & XInput.ButtonFlags.RightShoulder) != 0 ? on : off;
+                lblStart.BackColor = (buttons & XInput.ButtonFlags.Start) != 0 ? on : off;
+                lblBack.BackColor = (buttons & XInput.ButtonFlags.Back) != 0 ? on : off;
             }
             else
             {
                 lblConnected.Text = "No controller";
+                lblDPadUp.BackColor = lblDPadDown.BackColor = lblDPadLeft.BackColor = lblDPadRight.BackColor =
+                    lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor = Color.Gray;
             }
         }
 
