@@ -25,6 +25,8 @@ namespace XboxJoystickTester
         private System.Windows.Forms.Label lblRB;
         private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblBack;
+        private System.Windows.Forms.Panel panelLeftStick;
+        private System.Windows.Forms.Panel panelRightStick;
 
         protected override void Dispose(bool disposing)
         {
@@ -59,6 +61,8 @@ namespace XboxJoystickTester
             this.lblRB = new System.Windows.Forms.Label();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblBack = new System.Windows.Forms.Label();
+            this.panelLeftStick = new System.Windows.Forms.Panel();
+            this.panelRightStick = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.trackLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackRight)).BeginInit();
             this.SuspendLayout();
@@ -73,74 +77,82 @@ namespace XboxJoystickTester
             this.lblConnected.Text = "No controller";
             // 
             // lblA
-            // 
-            this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(12, 33);
+            //
+            this.lblA.AutoSize = false;
+            this.lblA.Location = new System.Drawing.Point(12, 30);
             this.lblA.Name = "lblA";
-            this.lblA.Size = new System.Drawing.Size(24, 15);
+            this.lblA.Size = new System.Drawing.Size(60, 60);
             this.lblA.TabIndex = 1;
-            this.lblA.Text = "A:";
+            this.lblA.Text = "A";
+            this.lblA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblB
-            // 
-            this.lblB.AutoSize = true;
-            this.lblB.Location = new System.Drawing.Point(12, 48);
+            //
+            this.lblB.AutoSize = false;
+            this.lblB.Location = new System.Drawing.Point(80, 30);
             this.lblB.Name = "lblB";
-            this.lblB.Size = new System.Drawing.Size(23, 15);
+            this.lblB.Size = new System.Drawing.Size(60, 60);
             this.lblB.TabIndex = 2;
-            this.lblB.Text = "B:";
+            this.lblB.Text = "B";
+            this.lblB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblX
-            // 
-            this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(12, 63);
+            //
+            this.lblX.AutoSize = false;
+            this.lblX.Location = new System.Drawing.Point(148, 30);
             this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(24, 15);
+            this.lblX.Size = new System.Drawing.Size(60, 60);
             this.lblX.TabIndex = 3;
-            this.lblX.Text = "X:";
+            this.lblX.Text = "X";
+            this.lblX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblY
-            // 
-            this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(12, 78);
+            //
+            this.lblY.AutoSize = false;
+            this.lblY.Location = new System.Drawing.Point(216, 30);
             this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(23, 15);
+            this.lblY.Size = new System.Drawing.Size(60, 60);
             this.lblY.TabIndex = 4;
-            this.lblY.Text = "Y:";
+            this.lblY.Text = "Y";
+            this.lblY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLX
-            // 
+            //
             this.lblLX.AutoSize = true;
-            this.lblLX.Location = new System.Drawing.Point(150, 33);
+            this.lblLX.Location = new System.Drawing.Point(300, 40);
             this.lblLX.Name = "lblLX";
-            this.lblLX.Size = new System.Drawing.Size(27, 15);
+            this.lblLX.Size = new System.Drawing.Size(36, 25);
             this.lblLX.TabIndex = 5;
             this.lblLX.Text = "LX:";
             // 
             // lblLY
             // 
             this.lblLY.AutoSize = true;
-            this.lblLY.Location = new System.Drawing.Point(150, 48);
+            this.lblLY.Location = new System.Drawing.Point(300, 70);
             this.lblLY.Name = "lblLY";
-            this.lblLY.Size = new System.Drawing.Size(27, 15);
+            this.lblLY.Size = new System.Drawing.Size(36, 25);
             this.lblLY.TabIndex = 6;
             this.lblLY.Text = "LY:";
             // 
             // lblRX
             // 
             this.lblRX.AutoSize = true;
-            this.lblRX.Location = new System.Drawing.Point(150, 63);
+            this.lblRX.Location = new System.Drawing.Point(420, 40);
             this.lblRX.Name = "lblRX";
-            this.lblRX.Size = new System.Drawing.Size(27, 15);
+            this.lblRX.Size = new System.Drawing.Size(36, 25);
             this.lblRX.TabIndex = 7;
             this.lblRX.Text = "RX:";
             // 
             // lblRY
             // 
             this.lblRY.AutoSize = true;
-            this.lblRY.Location = new System.Drawing.Point(150, 78);
+            this.lblRY.Location = new System.Drawing.Point(420, 70);
             this.lblRY.Name = "lblRY";
-            this.lblRY.Size = new System.Drawing.Size(27, 15);
+            this.lblRY.Size = new System.Drawing.Size(36, 25);
             this.lblRY.TabIndex = 8;
             this.lblRY.Text = "RY:";
             // 
@@ -190,11 +202,11 @@ namespace XboxJoystickTester
             //
             this.lblDPadUp.AutoSize = false;
             this.lblDPadUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDPadUp.Location = new System.Drawing.Point(12, 255);
+            this.lblDPadUp.Location = new System.Drawing.Point(210, 360);
             this.lblDPadUp.Name = "lblDPadUp";
-            this.lblDPadUp.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadUp.Size = new System.Drawing.Size(60, 60);
             this.lblDPadUp.TabIndex = 14;
-            this.lblDPadUp.Text = "Up";
+            this.lblDPadUp.Text = "D-Pad Up";
             this.lblDPadUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDPadUp.BackColor = System.Drawing.Color.Gray;
             //
@@ -202,11 +214,11 @@ namespace XboxJoystickTester
             //
             this.lblDPadDown.AutoSize = false;
             this.lblDPadDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDPadDown.Location = new System.Drawing.Point(97, 255);
+            this.lblDPadDown.Location = new System.Drawing.Point(210, 480);
             this.lblDPadDown.Name = "lblDPadDown";
-            this.lblDPadDown.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadDown.Size = new System.Drawing.Size(60, 60);
             this.lblDPadDown.TabIndex = 15;
-            this.lblDPadDown.Text = "Down";
+            this.lblDPadDown.Text = "D-Pad Down";
             this.lblDPadDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDPadDown.BackColor = System.Drawing.Color.Gray;
             //
@@ -214,11 +226,11 @@ namespace XboxJoystickTester
             //
             this.lblDPadLeft.AutoSize = false;
             this.lblDPadLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDPadLeft.Location = new System.Drawing.Point(182, 255);
+            this.lblDPadLeft.Location = new System.Drawing.Point(150, 420);
             this.lblDPadLeft.Name = "lblDPadLeft";
-            this.lblDPadLeft.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadLeft.Size = new System.Drawing.Size(60, 60);
             this.lblDPadLeft.TabIndex = 16;
-            this.lblDPadLeft.Text = "Left";
+            this.lblDPadLeft.Text = "D-Pad Left";
             this.lblDPadLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDPadLeft.BackColor = System.Drawing.Color.Gray;
             //
@@ -226,11 +238,11 @@ namespace XboxJoystickTester
             //
             this.lblDPadRight.AutoSize = false;
             this.lblDPadRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDPadRight.Location = new System.Drawing.Point(267, 255);
+            this.lblDPadRight.Location = new System.Drawing.Point(270, 420);
             this.lblDPadRight.Name = "lblDPadRight";
-            this.lblDPadRight.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadRight.Size = new System.Drawing.Size(60, 60);
             this.lblDPadRight.TabIndex = 17;
-            this.lblDPadRight.Text = "Right";
+            this.lblDPadRight.Text = "D-Pad Right";
             this.lblDPadRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDPadRight.BackColor = System.Drawing.Color.Gray;
             //
@@ -240,9 +252,9 @@ namespace XboxJoystickTester
             this.lblLB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblLB.Location = new System.Drawing.Point(12, 285);
             this.lblLB.Name = "lblLB";
-            this.lblLB.Size = new System.Drawing.Size(60, 20);
+            this.lblLB.Size = new System.Drawing.Size(120, 35);
             this.lblLB.TabIndex = 18;
-            this.lblLB.Text = "LB";
+            this.lblLB.Text = "Left Bumper";
             this.lblLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLB.BackColor = System.Drawing.Color.Gray;
             //
@@ -250,11 +262,11 @@ namespace XboxJoystickTester
             //
             this.lblRB.AutoSize = false;
             this.lblRB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRB.Location = new System.Drawing.Point(97, 285);
+            this.lblRB.Location = new System.Drawing.Point(144, 285);
             this.lblRB.Name = "lblRB";
-            this.lblRB.Size = new System.Drawing.Size(60, 20);
+            this.lblRB.Size = new System.Drawing.Size(120, 35);
             this.lblRB.TabIndex = 19;
-            this.lblRB.Text = "RB";
+            this.lblRB.Text = "Right Bumper";
             this.lblRB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblRB.BackColor = System.Drawing.Color.Gray;
             //
@@ -262,11 +274,11 @@ namespace XboxJoystickTester
             //
             this.lblStart.AutoSize = false;
             this.lblStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblStart.Location = new System.Drawing.Point(182, 285);
+            this.lblStart.Location = new System.Drawing.Point(276, 285);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(60, 20);
+            this.lblStart.Size = new System.Drawing.Size(100, 35);
             this.lblStart.TabIndex = 20;
-            this.lblStart.Text = "Start";
+            this.lblStart.Text = "Menu";
             this.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblStart.BackColor = System.Drawing.Color.Gray;
             //
@@ -274,19 +286,36 @@ namespace XboxJoystickTester
             //
             this.lblBack.AutoSize = false;
             this.lblBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblBack.Location = new System.Drawing.Point(267, 285);
+            this.lblBack.Location = new System.Drawing.Point(276, 325);
             this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(60, 20);
+            this.lblBack.Size = new System.Drawing.Size(100, 35);
             this.lblBack.TabIndex = 21;
-            this.lblBack.Text = "Back";
+            this.lblBack.Text = "View";
             this.lblBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblBack.BackColor = System.Drawing.Color.Gray;
-            // 
+            //
+            // panelLeftStick
+            //
+            this.panelLeftStick.Location = new System.Drawing.Point(600, 40);
+            this.panelLeftStick.Name = "panelLeftStick";
+            this.panelLeftStick.Size = new System.Drawing.Size(180, 180);
+            this.panelLeftStick.TabIndex = 22;
+            this.panelLeftStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftStick_Paint);
+            //
+            // panelRightStick
+            //
+            this.panelRightStick.Location = new System.Drawing.Point(600, 260);
+            this.panelRightStick.Name = "panelRightStick";
+            this.panelRightStick.Size = new System.Drawing.Size(180, 180);
+            this.panelRightStick.TabIndex = 23;
+            this.panelRightStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightStick_Paint);
+            //
             // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 320);
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblRB);
@@ -309,6 +338,8 @@ namespace XboxJoystickTester
             this.Controls.Add(this.lblB);
             this.Controls.Add(this.lblA);
             this.Controls.Add(this.lblConnected);
+            this.Controls.Add(this.panelLeftStick);
+            this.Controls.Add(this.panelRightStick);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
