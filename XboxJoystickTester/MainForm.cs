@@ -20,6 +20,11 @@ namespace XboxJoystickTester
         {
             InitializeComponent();
 
+            MakeRound(lblA);
+            MakeRound(lblB);
+            MakeRound(lblX);
+            MakeRound(lblY);
+
             _timer = new Timer();
             _timer.Interval = 50; // 20 updates per second
             _timer.Tick += (s, e) => UpdateState();
@@ -32,10 +37,10 @@ namespace XboxJoystickTester
             {
                 lblConnected.Text = "Connected";
                 var buttons = (XInput.ButtonFlags)_state.Gamepad.wButtons;
-                lblA.Text = (buttons & XInput.ButtonFlags.A) != 0 ? "A: Pressed" : "A: Released";
-                lblB.Text = (buttons & XInput.ButtonFlags.B) != 0 ? "B: Pressed" : "B: Released";
-                lblX.Text = (buttons & XInput.ButtonFlags.X) != 0 ? "X: Pressed" : "X: Released";
-                lblY.Text = (buttons & XInput.ButtonFlags.Y) != 0 ? "Y: Pressed" : "Y: Released";
+                lblA.Text = "A";
+                lblB.Text = "B";
+                lblX.Text = "X";
+                lblY.Text = "Y";
                 lblLX.Text = $"LX: {_state.Gamepad.sThumbLX}";
                 lblLY.Text = $"LY: {_state.Gamepad.sThumbLY}";
                 lblRX.Text = $"RX: {_state.Gamepad.sThumbRX}";
@@ -50,6 +55,10 @@ namespace XboxJoystickTester
                 progressRT.Value = _state.Gamepad.bRightTrigger;
                 var on = Color.Lime;
                 var off = Color.Gray;
+                lblA.BackColor = (buttons & XInput.ButtonFlags.A) != 0 ? on : off;
+                lblB.BackColor = (buttons & XInput.ButtonFlags.B) != 0 ? on : off;
+                lblX.BackColor = (buttons & XInput.ButtonFlags.X) != 0 ? on : off;
+                lblY.BackColor = (buttons & XInput.ButtonFlags.Y) != 0 ? on : off;
                 lblDPadUp.BackColor = (buttons & XInput.ButtonFlags.DPadUp) != 0 ? on : off;
                 lblDPadDown.BackColor = (buttons & XInput.ButtonFlags.DPadDown) != 0 ? on : off;
                 lblDPadLeft.BackColor = (buttons & XInput.ButtonFlags.DPadLeft) != 0 ? on : off;
@@ -63,7 +72,8 @@ namespace XboxJoystickTester
             {
                 lblConnected.Text = "No controller";
                 lblDPadUp.BackColor = lblDPadDown.BackColor = lblDPadLeft.BackColor = lblDPadRight.BackColor =
-                    lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor = Color.Gray;
+                    lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor =
+                    lblA.BackColor = lblB.BackColor = lblX.BackColor = lblY.BackColor = Color.Gray;
                 _leftX = _leftY = _rightX = _rightY = 0;
                 panelLeftStick.Invalidate();
                 panelRightStick.Invalidate();
@@ -99,6 +109,13 @@ namespace XboxJoystickTester
             int bx = centerX + (int)(x / 32767f * radius);
             int by = centerY - (int)(y / 32767f * radius);
             g.FillEllipse(Brushes.Red, bx - ballRadius, by - ballRadius, ballRadius * 2, ballRadius * 2);
+        }
+
+        private void MakeRound(Control ctrl)
+        {
+            var path = new GraphicsPath();
+            path.AddEllipse(0, 0, ctrl.Width, ctrl.Height);
+            ctrl.Region = new Region(path);
         }
     }
 
