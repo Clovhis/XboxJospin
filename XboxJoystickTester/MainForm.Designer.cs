@@ -17,6 +17,14 @@ namespace XboxJoystickTester
         private System.Windows.Forms.TrackBar trackLeft;
         private System.Windows.Forms.TrackBar trackRight;
         private System.Windows.Forms.Button btnVibrate;
+        private System.Windows.Forms.Label lblDPadUp;
+        private System.Windows.Forms.Label lblDPadDown;
+        private System.Windows.Forms.Label lblDPadLeft;
+        private System.Windows.Forms.Label lblDPadRight;
+        private System.Windows.Forms.Label lblLB;
+        private System.Windows.Forms.Label lblRB;
+        private System.Windows.Forms.Label lblStart;
+        private System.Windows.Forms.Label lblBack;
 
         protected override void Dispose(bool disposing)
         {
@@ -43,6 +51,14 @@ namespace XboxJoystickTester
             this.trackLeft = new System.Windows.Forms.TrackBar();
             this.trackRight = new System.Windows.Forms.TrackBar();
             this.btnVibrate = new System.Windows.Forms.Button();
+            this.lblDPadUp = new System.Windows.Forms.Label();
+            this.lblDPadDown = new System.Windows.Forms.Label();
+            this.lblDPadLeft = new System.Windows.Forms.Label();
+            this.lblDPadRight = new System.Windows.Forms.Label();
+            this.lblLB = new System.Windows.Forms.Label();
+            this.lblRB = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.lblBack = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackRight)).BeginInit();
             this.SuspendLayout();
@@ -169,12 +185,116 @@ namespace XboxJoystickTester
             this.btnVibrate.Text = "Vibrate";
             this.btnVibrate.UseVisualStyleBackColor = true;
             this.btnVibrate.Click += new System.EventHandler(this.btnVibrate_Click);
+            //
+            // lblDPadUp
+            //
+            this.lblDPadUp.AutoSize = false;
+            this.lblDPadUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDPadUp.Location = new System.Drawing.Point(12, 255);
+            this.lblDPadUp.Name = "lblDPadUp";
+            this.lblDPadUp.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadUp.TabIndex = 14;
+            this.lblDPadUp.Text = "Up";
+            this.lblDPadUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDPadUp.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblDPadDown
+            //
+            this.lblDPadDown.AutoSize = false;
+            this.lblDPadDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDPadDown.Location = new System.Drawing.Point(97, 255);
+            this.lblDPadDown.Name = "lblDPadDown";
+            this.lblDPadDown.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadDown.TabIndex = 15;
+            this.lblDPadDown.Text = "Down";
+            this.lblDPadDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDPadDown.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblDPadLeft
+            //
+            this.lblDPadLeft.AutoSize = false;
+            this.lblDPadLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDPadLeft.Location = new System.Drawing.Point(182, 255);
+            this.lblDPadLeft.Name = "lblDPadLeft";
+            this.lblDPadLeft.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadLeft.TabIndex = 16;
+            this.lblDPadLeft.Text = "Left";
+            this.lblDPadLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDPadLeft.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblDPadRight
+            //
+            this.lblDPadRight.AutoSize = false;
+            this.lblDPadRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDPadRight.Location = new System.Drawing.Point(267, 255);
+            this.lblDPadRight.Name = "lblDPadRight";
+            this.lblDPadRight.Size = new System.Drawing.Size(60, 20);
+            this.lblDPadRight.TabIndex = 17;
+            this.lblDPadRight.Text = "Right";
+            this.lblDPadRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDPadRight.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblLB
+            //
+            this.lblLB.AutoSize = false;
+            this.lblLB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLB.Location = new System.Drawing.Point(12, 285);
+            this.lblLB.Name = "lblLB";
+            this.lblLB.Size = new System.Drawing.Size(60, 20);
+            this.lblLB.TabIndex = 18;
+            this.lblLB.Text = "LB";
+            this.lblLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLB.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblRB
+            //
+            this.lblRB.AutoSize = false;
+            this.lblRB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRB.Location = new System.Drawing.Point(97, 285);
+            this.lblRB.Name = "lblRB";
+            this.lblRB.Size = new System.Drawing.Size(60, 20);
+            this.lblRB.TabIndex = 19;
+            this.lblRB.Text = "RB";
+            this.lblRB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRB.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblStart
+            //
+            this.lblStart.AutoSize = false;
+            this.lblStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStart.Location = new System.Drawing.Point(182, 285);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(60, 20);
+            this.lblStart.TabIndex = 20;
+            this.lblStart.Text = "Start";
+            this.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStart.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblBack
+            //
+            this.lblBack.AutoSize = false;
+            this.lblBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBack.Location = new System.Drawing.Point(267, 285);
+            this.lblBack.Name = "lblBack";
+            this.lblBack.Size = new System.Drawing.Size(60, 20);
+            this.lblBack.TabIndex = 21;
+            this.lblBack.Text = "Back";
+            this.lblBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBack.BackColor = System.Drawing.Color.Gray;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 262);
+            this.ClientSize = new System.Drawing.Size(360, 320);
+            this.Controls.Add(this.lblBack);
+            this.Controls.Add(this.lblStart);
+            this.Controls.Add(this.lblRB);
+            this.Controls.Add(this.lblLB);
+            this.Controls.Add(this.lblDPadRight);
+            this.Controls.Add(this.lblDPadLeft);
+            this.Controls.Add(this.lblDPadDown);
+            this.Controls.Add(this.lblDPadUp);
             this.Controls.Add(this.btnVibrate);
             this.Controls.Add(this.trackRight);
             this.Controls.Add(this.trackLeft);
