@@ -69,12 +69,15 @@ namespace XboxJoystickTester
             // 
             // lblConnected
             // 
-            this.lblConnected.AutoSize = true;
-            this.lblConnected.Location = new System.Drawing.Point(12, 9);
+            this.lblConnected.AutoSize = false;
+            this.lblConnected.Location = new System.Drawing.Point(12, 5);
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(69, 15);
+            this.lblConnected.Size = new System.Drawing.Size(260, 35);
             this.lblConnected.TabIndex = 0;
-            this.lblConnected.Text = "No controller";
+            this.lblConnected.Text = "No controller found";
+            this.lblConnected.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblConnected.BackColor = System.Drawing.Color.Red;
+            this.lblConnected.ForeColor = System.Drawing.Color.White;
             // 
             // lblA
             //
@@ -192,7 +195,7 @@ namespace XboxJoystickTester
             // 
             this.btnVibrate.Location = new System.Drawing.Point(12, 227);
             this.btnVibrate.Name = "btnVibrate";
-            this.btnVibrate.Size = new System.Drawing.Size(75, 23);
+            this.btnVibrate.Size = new System.Drawing.Size(120, 40);
             this.btnVibrate.TabIndex = 13;
             this.btnVibrate.Text = "Vibrate";
             this.btnVibrate.UseVisualStyleBackColor = true;
@@ -298,15 +301,15 @@ namespace XboxJoystickTester
             //
             this.panelLeftStick.Location = new System.Drawing.Point(600, 40);
             this.panelLeftStick.Name = "panelLeftStick";
-            this.panelLeftStick.Size = new System.Drawing.Size(180, 180);
+            this.panelLeftStick.Size = new System.Drawing.Size(200, 200);
             this.panelLeftStick.TabIndex = 22;
             this.panelLeftStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftStick_Paint);
             //
             // panelRightStick
             //
-            this.panelRightStick.Location = new System.Drawing.Point(600, 260);
+            this.panelRightStick.Location = new System.Drawing.Point(600, 270);
             this.panelRightStick.Name = "panelRightStick";
-            this.panelRightStick.Size = new System.Drawing.Size(180, 180);
+            this.panelRightStick.Size = new System.Drawing.Size(200, 200);
             this.panelRightStick.TabIndex = 23;
             this.panelRightStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightStick_Paint);
             //
@@ -314,7 +317,7 @@ namespace XboxJoystickTester
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(800, 700);
             this.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblStart);
