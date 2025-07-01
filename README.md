@@ -24,3 +24,6 @@ The code can be extended to add detailed diagnostics and PDF report generation.
 
 Pushes to branches starting with `Feature/` automatically trigger a GitHub Actions workflow that builds the project and uploads a `.zip` containing the published files to the repository Releases.
 The workflow grants write access to the generated release using `permissions: write-all` so that the portable archive can be uploaded automatically.
+
+## En Criollo
+Te bajás el .zip desde Releases (El stable release) descomprimis y ejecutás el .exe (Ponele que el AV te lo corra igual). 
