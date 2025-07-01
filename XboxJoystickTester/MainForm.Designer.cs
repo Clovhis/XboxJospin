@@ -27,6 +27,9 @@ namespace XboxJoystickTester
         private System.Windows.Forms.Label lblBack;
         private System.Windows.Forms.Panel panelLeftStick;
         private System.Windows.Forms.Panel panelRightStick;
+        private System.Windows.Forms.Label lblLeftStickPress;
+        private System.Windows.Forms.Label lblRightStickPress;
+        private System.Windows.Forms.Label lblCredits;
 
         protected override void Dispose(bool disposing)
         {
@@ -63,18 +66,24 @@ namespace XboxJoystickTester
             this.lblBack = new System.Windows.Forms.Label();
             this.panelLeftStick = new System.Windows.Forms.Panel();
             this.panelRightStick = new System.Windows.Forms.Panel();
+            this.lblLeftStickPress = new System.Windows.Forms.Label();
+            this.lblRightStickPress = new System.Windows.Forms.Label();
+            this.lblCredits = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackRight)).BeginInit();
             this.SuspendLayout();
             // 
             // lblConnected
             // 
-            this.lblConnected.AutoSize = true;
-            this.lblConnected.Location = new System.Drawing.Point(12, 9);
+            this.lblConnected.AutoSize = false;
+            this.lblConnected.Location = new System.Drawing.Point(12, 0);
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(69, 15);
+            this.lblConnected.Size = new System.Drawing.Size(260, 30);
             this.lblConnected.TabIndex = 0;
-            this.lblConnected.Text = "No controller";
+            this.lblConnected.Text = "No controller found";
+            this.lblConnected.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblConnected.BackColor = System.Drawing.Color.Red;
+            this.lblConnected.ForeColor = System.Drawing.Color.White;
             // 
             // lblA
             //
@@ -192,7 +201,7 @@ namespace XboxJoystickTester
             // 
             this.btnVibrate.Location = new System.Drawing.Point(12, 227);
             this.btnVibrate.Name = "btnVibrate";
-            this.btnVibrate.Size = new System.Drawing.Size(75, 23);
+            this.btnVibrate.Size = new System.Drawing.Size(120, 40);
             this.btnVibrate.TabIndex = 13;
             this.btnVibrate.Text = "Vibrate";
             this.btnVibrate.UseVisualStyleBackColor = true;
@@ -298,23 +307,57 @@ namespace XboxJoystickTester
             //
             this.panelLeftStick.Location = new System.Drawing.Point(600, 40);
             this.panelLeftStick.Name = "panelLeftStick";
-            this.panelLeftStick.Size = new System.Drawing.Size(180, 180);
+            this.panelLeftStick.Size = new System.Drawing.Size(200, 200);
             this.panelLeftStick.TabIndex = 22;
             this.panelLeftStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftStick_Paint);
             //
             // panelRightStick
             //
-            this.panelRightStick.Location = new System.Drawing.Point(600, 260);
+            this.panelRightStick.Location = new System.Drawing.Point(600, 270);
             this.panelRightStick.Name = "panelRightStick";
-            this.panelRightStick.Size = new System.Drawing.Size(180, 180);
+            this.panelRightStick.Size = new System.Drawing.Size(200, 200);
             this.panelRightStick.TabIndex = 23;
             this.panelRightStick.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightStick_Paint);
+            //
+            // lblLeftStickPress
+            //
+            this.lblLeftStickPress.AutoSize = false;
+            this.lblLeftStickPress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLeftStickPress.Location = new System.Drawing.Point(600, 245);
+            this.lblLeftStickPress.Name = "lblLeftStickPress";
+            this.lblLeftStickPress.Size = new System.Drawing.Size(200, 30);
+            this.lblLeftStickPress.TabIndex = 24;
+            this.lblLeftStickPress.Text = "Left Stick";
+            this.lblLeftStickPress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLeftStickPress.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblRightStickPress
+            //
+            this.lblRightStickPress.AutoSize = false;
+            this.lblRightStickPress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRightStickPress.Location = new System.Drawing.Point(600, 475);
+            this.lblRightStickPress.Name = "lblRightStickPress";
+            this.lblRightStickPress.Size = new System.Drawing.Size(200, 30);
+            this.lblRightStickPress.TabIndex = 25;
+            this.lblRightStickPress.Text = "Right Stick";
+            this.lblRightStickPress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRightStickPress.BackColor = System.Drawing.Color.Gray;
+            //
+            // lblCredits
+            //
+            this.lblCredits.AutoSize = true;
+            this.lblCredits.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblCredits.Location = new System.Drawing.Point(640, 670);
+            this.lblCredits.Name = "lblCredits";
+            this.lblCredits.Size = new System.Drawing.Size(148, 13);
+            this.lblCredits.TabIndex = 26;
+            this.lblCredits.Text = "Created by Clovhis";
             //
             // MainForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(800, 700);
             this.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblStart);
@@ -337,13 +380,16 @@ namespace XboxJoystickTester
             this.Controls.Add(this.lblX);
             this.Controls.Add(this.lblB);
             this.Controls.Add(this.lblA);
+            this.Controls.Add(this.lblCredits);
+            this.Controls.Add(this.lblRightStickPress);
+            this.Controls.Add(this.lblLeftStickPress);
             this.Controls.Add(this.lblConnected);
             this.Controls.Add(this.panelLeftStick);
             this.Controls.Add(this.panelRightStick);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Xbox Joystick Tester";
+            this.Text = "Jospin Tester by JodlP";
             ((System.ComponentModel.ISupportInitialize)(this.trackLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackRight)).EndInit();
             this.ResumeLayout(false);

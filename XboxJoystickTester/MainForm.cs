@@ -35,7 +35,9 @@ namespace XboxJoystickTester
         {
             if (XInput.XInputGetState(0, ref _state) == 0)
             {
-                lblConnected.Text = "Connected";
+                lblConnected.Text = "Xbox controller connected";
+                lblConnected.BackColor = Color.Green;
+                lblConnected.ForeColor = Color.White;
                 var buttons = (XInput.ButtonFlags)_state.Gamepad.wButtons;
                 lblA.Text = "A";
                 lblB.Text = "B";
@@ -67,12 +69,17 @@ namespace XboxJoystickTester
                 lblRB.BackColor = (buttons & XInput.ButtonFlags.RightShoulder) != 0 ? on : off;
                 lblStart.BackColor = (buttons & XInput.ButtonFlags.Start) != 0 ? on : off;
                 lblBack.BackColor = (buttons & XInput.ButtonFlags.Back) != 0 ? on : off;
+                lblLeftStickPress.BackColor = (buttons & XInput.ButtonFlags.LeftThumb) != 0 ? on : off;
+                lblRightStickPress.BackColor = (buttons & XInput.ButtonFlags.RightThumb) != 0 ? on : off;
             }
             else
             {
-                lblConnected.Text = "No controller";
+                lblConnected.Text = "No controller found";
+                lblConnected.BackColor = Color.Red;
+                lblConnected.ForeColor = Color.White;
                 lblDPadUp.BackColor = lblDPadDown.BackColor = lblDPadLeft.BackColor = lblDPadRight.BackColor =
                     lblLB.BackColor = lblRB.BackColor = lblStart.BackColor = lblBack.BackColor =
+                    lblLeftStickPress.BackColor = lblRightStickPress.BackColor =
                     lblA.BackColor = lblB.BackColor = lblX.BackColor = lblY.BackColor = Color.Gray;
                 _leftX = _leftY = _rightX = _rightY = 0;
                 panelLeftStick.Invalidate();
@@ -106,8 +113,10 @@ namespace XboxJoystickTester
             int centerY = panel.Height / 2;
             g.DrawEllipse(Pens.Black, centerX - radius, centerY - radius, radius * 2, radius * 2);
             int ballRadius = 6;
-            int bx = centerX + (int)(x / 32767f * radius);
-            int by = centerY - (int)(y / 32767f * radius);
+            float nx = Math.Max(-1f, Math.Min(1f, x / 32767f));
+            float ny = Math.Max(-1f, Math.Min(1f, y / 32767f));
+            int bx = centerX + (int)(nx * (radius - ballRadius));
+            int by = centerY - (int)(ny * (radius - ballRadius));
             g.FillEllipse(Brushes.Red, bx - ballRadius, by - ballRadius, ballRadius * 2, ballRadius * 2);
         }
 
