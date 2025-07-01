@@ -10,10 +10,16 @@ namespace XboxJoystickTester
     {
         private Timer _timer;
         private XInput.XINPUT_STATE _state;
+        private JoystickView _view;
 
         public MainForm()
         {
             InitializeComponent();
+
+            this.Text = $"Jospin by Clovhis - ver. {Application.ProductVersion}";
+
+            _view = joystickView;
+            _view.SendToBack();
 
             _timer = new Timer();
             _timer.Interval = 50; // 20 updates per second
@@ -37,10 +43,12 @@ namespace XboxJoystickTester
                 lblRY.Text = $"RY: {_state.Gamepad.sThumbRY}";
                 progressLT.Value = _state.Gamepad.bLeftTrigger;
                 progressRT.Value = _state.Gamepad.bRightTrigger;
+                _view.UpdateState(_state);
             }
             else
             {
                 lblConnected.Text = "No controller";
+                _view.UpdateState(_state);
             }
         }
 

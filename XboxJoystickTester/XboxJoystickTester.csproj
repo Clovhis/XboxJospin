@@ -2,7 +2,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
+  <UseWindowsForms>true</UseWindowsForms>
+  <AssemblyVersion>0.1.0</AssemblyVersion>
+  <FileVersion>0.1.0</FileVersion>
     <!-- Publish settings for a portable distribution -->
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>

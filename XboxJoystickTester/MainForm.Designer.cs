@@ -17,6 +17,7 @@ namespace XboxJoystickTester
         private System.Windows.Forms.TrackBar trackLeft;
         private System.Windows.Forms.TrackBar trackRight;
         private System.Windows.Forms.Button btnVibrate;
+        private JoystickView joystickView;
 
         protected override void Dispose(bool disposing)
         {
@@ -169,12 +170,22 @@ namespace XboxJoystickTester
             this.btnVibrate.Text = "Vibrate";
             this.btnVibrate.UseVisualStyleBackColor = true;
             this.btnVibrate.Click += new System.EventHandler(this.btnVibrate_Click);
+
+            //
+            // joystickView
+            //
+            this.joystickView = new JoystickView();
+            this.joystickView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.joystickView.Location = new System.Drawing.Point(0, 0);
+            this.joystickView.Name = "joystickView";
+            this.joystickView.Size = new System.Drawing.Size(800, 600);
+            this.joystickView.TabIndex = 14;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 262);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnVibrate);
             this.Controls.Add(this.trackRight);
             this.Controls.Add(this.trackLeft);
@@ -188,11 +199,12 @@ namespace XboxJoystickTester
             this.Controls.Add(this.lblX);
             this.Controls.Add(this.lblB);
             this.Controls.Add(this.lblA);
+            this.Controls.Add(this.joystickView);
             this.Controls.Add(this.lblConnected);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Xbox Joystick Tester";
+            this.Text = "Jospin by Clovhis";
             ((System.ComponentModel.ISupportInitialize)(this.trackLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackRight)).EndInit();
             this.ResumeLayout(false);
