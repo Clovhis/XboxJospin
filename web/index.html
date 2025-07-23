@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joystick Tester</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .controller-button {
+            @apply bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full w-20 h-20 flex items-center justify-center transition-colors text-2xl;
+        }
+        .control-button {
+            @apply bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+        }
+        .stick-area {
+            @apply w-48 h-48 bg-gray-800 rounded-full border-2 border-gray-600 flex items-center justify-center relative;
+        }
+        .stick-dot {
+            @apply w-12 h-12 bg-red-500 rounded-full absolute;
+        }
+        .d-pad-container {
+            position: relative;
+            width: 108px;height: 108px;}
+        .d-pad-button {
+            @apply bg-gray-700 hover:bg-gray-600 w-9 h-9 flex items-center justify-center text-xs font-semibold transition-colors absolute;
+        }
+        .d-pad-center {
+            @apply bg-gray-800 w-9 h-9 absolute;
+            top: 36px;
+            left: 36px;
+        }
+        .d-pad-up {
+            top: 0;
+            left: 36px;
+            clip-path: polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
+        }
+        .d-pad-down {
+            bottom: 0;
+            left: 36px;
+             clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+        .d-pad-left {
+            top: 36px;
+            left: 0;
+            clip-path: polygon(0 50%, 50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+        .d-pad-right {
+            top: 36px;
+            right: 0;
+             clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 100%, 0 0);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<div class="bg-gray-900 shadow-2xl rounded-2xl p-8 w-full max-w-4xl">
+<header class="flex justify-between items-center mb-6">
+<h1 class="text-2xl font-bold text-white">Joystick Tester</h1>
+<div class="flex items-center space-x-2">
+<span class="material-icons text-gray-400">minimize</span>
+<span class="material-icons text-gray-400">check_box_outline_blank</span>
+<span class="material-icons text-gray-400">close</span>
+</div>
+</header>
+<div id="status" class="bg-red-600 text-white font-bold py-3 px-6 rounded-lg mb-8 text-center text-lg">
+        No controller found
+    </div>
+<main class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-8">
+<div class="flex justify-center items-center space-x-4">
+<div id="btn-a" class="controller-button" style="background-color: #4CAF50;">A</div>
+<div id="btn-b" class="controller-button" style="background-color: #F44336;">B</div>
+<div id="btn-x" class="controller-button" style="background-color: #2196F3;">X</div>
+<div id="btn-y" class="controller-button" style="background-color: #FFC107;">Y</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-x-8 gap-y-4">
+<div class="text-gray-400 font-semibold">LX: <span id="lx" class="text-white">0.00</span></div>
+<div class="text-gray-400 font-semibold">RX: <span id="rx" class="text-white">0.00</span></div>
+<div class="text-gray-400 font-semibold">LY: <span id="ly" class="text-white">0.00</span></div>
+<div class="text-gray-400 font-semibold">RY: <span id="ry" class="text-white">0.00</span></div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<input id="lt" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-400" max="100" min="0" type="range" value="0"/>
+</div>
+<div>
+<input id="rt" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-400" max="100" min="0" type="range" value="0"/>
+</div>
+</div>
+<div class="flex justify-center">
+<button id="vibrate" class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-8 rounded-lg w-full transition-colors">Vibrate</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button id="lb" class="control-button">Left</button>
+<button id="rb" class="control-button">Right</button>
+<button id="menu" class="control-button">Menu</button>
+<button id="view" class="control-button">View</button>
+</div>
+<div class="flex justify-center pt-4">
+<div class="d-pad-container">
+<div id="dpad-up" class="d-pad-button d-pad-up">
+<span class="material-icons" style="transform: rotate(-90deg);">play_arrow</span>
+</div>
+<div id="dpad-left" class="d-pad-button d-pad-left">
+<span class="material-icons" style="transform: rotate(180deg);">play_arrow</span>
+</div>
+<div class="d-pad-center"></div>
+<div id="dpad-right" class="d-pad-button d-pad-right">
+<span class="material-icons">play_arrow</span>
+</div>
+<div id="dpad-down" class="d-pad-button d-pad-down">
+<span class="material-icons" style="transform: rotate(90deg);">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-around space-y-8">
+<div class="flex flex-col items-center">
+<div class="stick-area">
+<div id="ls-dot" class="stick-dot"></div>
+</div>
+<p class="mt-4 text-lg font-semibold text-gray-300">Left Stick</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="stick-area">
+<div id="rs-dot" class="stick-dot"></div>
+</div>
+<p class="mt-4 text-lg font-semibold text-gray-300">Right Stick</p>
+</div>
+</div>
+</main>
+<footer class="text-center text-gray-500 text-sm mt-8">
+        Created by You
+    </footer>
+</div>
+<script>
+(function(){
+  let activeGamepad = null;
+  const statusEl = document.getElementById('status');
+  const btns = {
+    a: document.getElementById('btn-a'),
+    b: document.getElementById('btn-b'),
+    x: document.getElementById('btn-x'),
+    y: document.getElementById('btn-y'),
+    lb: document.getElementById('lb'),
+    rb: document.getElementById('rb'),
+    menu: document.getElementById('menu'),
+    view: document.getElementById('view'),
+    dpadUp: document.getElementById('dpad-up'),
+    dpadDown: document.getElementById('dpad-down'),
+    dpadLeft: document.getElementById('dpad-left'),
+    dpadRight: document.getElementById('dpad-right')
+  };
+  const axesEl = {
+    lx: document.getElementById('lx'),
+    ly: document.getElementById('ly'),
+    rx: document.getElementById('rx'),
+    ry: document.getElementById('ry')
+  };
+  const triggers = {
+    lt: document.getElementById('lt'),
+    rt: document.getElementById('rt')
+  };
+  const sticks = {
+    ls: document.getElementById('ls-dot'),
+    rs: document.getElementById('rs-dot')
+  };
+  const vibrateBtn = document.getElementById('vibrate');
+  function connectHandler(e){
+    activeGamepad = e.gamepad;
+    statusEl.textContent = `Controller connected: ${activeGamepad.id}`;
+    statusEl.classList.remove('bg-red-600');
+    statusEl.classList.add('bg-teal-600');
+    requestAnimationFrame(updateLoop);
+  }
+  function disconnectHandler(){
+    activeGamepad = null;
+    statusEl.textContent = 'No controller found';
+    statusEl.classList.add('bg-red-600');
+    statusEl.classList.remove('bg-teal-600');
+  }
+  window.addEventListener('gamepadconnected', connectHandler);
+  window.addEventListener('gamepaddisconnected', disconnectHandler);
+  function applyButton(el, pressed){
+    if(!el) return;
+    if(pressed){
+      el.classList.add('ring','ring-yellow-400');
+    }else{
+      el.classList.remove('ring','ring-yellow-400');
+    }
+  }
+  function updateLoop(){
+    if(!activeGamepad){
+      const gps = navigator.getGamepads();
+      for(const gp of gps){
+        if(gp){
+          activeGamepad = gp;
+          statusEl.textContent = `Controller connected: ${gp.id}`;
+          statusEl.classList.remove('bg-red-600');
+          statusEl.classList.add('bg-teal-600');
+          break;
+        }
+      }
+    }
+    if(!activeGamepad){
+      requestAnimationFrame(updateLoop);
+      return;
+    }
+    const gp = navigator.getGamepads()[activeGamepad.index];
+    if(!gp){
+      disconnectHandler();
+      requestAnimationFrame(updateLoop);
+      return;
+    }
+    // Buttons mapping
+    applyButton(btns.a, gp.buttons[0].pressed);
+    applyButton(btns.b, gp.buttons[1].pressed);
+    applyButton(btns.x, gp.buttons[2].pressed);
+    applyButton(btns.y, gp.buttons[3].pressed);
+    applyButton(btns.lb, gp.buttons[4].pressed);
+    applyButton(btns.rb, gp.buttons[5].pressed);
+    applyButton(btns.menu, gp.buttons[9].pressed);
+    applyButton(btns.view, gp.buttons[8].pressed);
+    applyButton(btns.dpadUp, gp.buttons[12].pressed);
+    applyButton(btns.dpadDown, gp.buttons[13].pressed);
+    applyButton(btns.dpadLeft, gp.buttons[14].pressed);
+    applyButton(btns.dpadRight, gp.buttons[15].pressed);
+
+    // Triggers as range 0..1
+    triggers.lt.value = gp.buttons[6].value * 100;
+    triggers.rt.value = gp.buttons[7].value * 100;
+
+    // Axes values
+    const lx = gp.axes[0].toFixed(2);
+    const ly = gp.axes[1].toFixed(2);
+    const rx = gp.axes[2].toFixed(2);
+    const ry = gp.axes[3].toFixed(2);
+    axesEl.lx.textContent = lx;
+    axesEl.ly.textContent = ly;
+    axesEl.rx.textContent = rx;
+    axesEl.ry.textContent = ry;
+    // Move stick dots (offset within area 48x48 -> dot 12x12 -> radius 24 minus 6 = 18)
+    const radius = 24 - 6; // container 48/2 - dot radius
+    sticks.ls.style.transform = `translate(${gp.axes[0]*radius}px, ${gp.axes[1]*radius}px)`;
+    sticks.rs.style.transform = `translate(${gp.axes[2]*radius}px, ${gp.axes[3]*radius}px)`;
+
+    requestAnimationFrame(updateLoop);
+  }
+  vibrateBtn.addEventListener('click', function(){
+    if(!activeGamepad) return;
+    const actuator = activeGamepad.vibrationActuator;
+    if(actuator && actuator.type === 'dual-rumble'){
+      actuator.playEffect('dual-rumble', {
+        duration: 500,
+        strongMagnitude: 1.0,
+        weakMagnitude: 1.0
+      });
+    }
+  });
+  requestAnimationFrame(updateLoop);
+})();
+</script>
+</body>
+</html>
